@@ -1,6 +1,6 @@
 # LLMs-security-paper--PDP-ensemble-approach
-Hi, I hope you are doing fine, and I also hope that you enjoy reading the paper and the code. Best wishes.
+Code and Reproducibility Package
 
-With the files above, you can reproduce the experiment.
+This repository contains the experiment code and dataset for the paper "Architecting Robust LLM Security: Decision-Level Ensemble
+Learning in Policy Enforcement Systems".
 
-Please hit me up at hamzalzabut@gmail.com in case you have any questions. 
