@@ -86,7 +86,7 @@ warnings.filterwarnings("ignore")
 # ── Path configuration ────────────────────────────────────────────────────────
 # The script searches for the dataset in several common locations automatically.
 # To override, set the DATASET_PATH environment variable, e.g.:
-#   Windows:  set DATASET_PATH=C:\Users\C-ROAD\Desktop\Dataset\pdp_clean_dataset.jsonl
+#  Windows: set DATASET_PATH=C:\Users\YourUsername\Desktop\Dataset\pdp_clean_dataset.jsonl
 #   Mac/Linux: export DATASET_PATH=/path/to/pdp_clean_dataset.jsonl
 # Or just place pdp_clean_dataset.jsonl in the same folder as this script.
 
@@ -115,10 +115,8 @@ def _find_dataset() -> Path:
         if Path(name).exists():
             return Path(name)
 
-    # 4. Common Windows desktop paths
+ # 4. Common desktop/downloads locations
     for candidate in [
-        Path(r"C:\Users\C-ROAD\Desktop\Dataset\pdp_clean_dataset.jsonl"),
-        Path(r"C:\Users\C-ROAD\Desktop\Dataset\pdp_clean_dataset.csv"),
         Path.home() / "Desktop" / "Dataset" / "pdp_clean_dataset.jsonl",
         Path.home() / "Desktop" / "pdp_clean_dataset.jsonl",
         Path.home() / "Downloads" / "pdp_clean_dataset.jsonl",
@@ -127,7 +125,7 @@ def _find_dataset() -> Path:
             return candidate
 
     # 5. Linux/CI fallback
-    fallback = Path("/home/claude/pdp_clean_dataset.jsonl")
+    fallback = Path("/home/pdp_clean_dataset.jsonl")
     if fallback.exists():
         return fallback
 
@@ -135,7 +133,7 @@ def _find_dataset() -> Path:
     print("Please do ONE of the following:")
     print("  A) Place pdp_clean_dataset.jsonl in the same folder as run_experiment.py")
     print(r"  B) Set the environment variable, e.g.:")
-    print(r"       Windows:  set DATASET_PATH=C:\Users\C-ROAD\Desktop\Dataset\pdp_clean_dataset.jsonl")
+    print(r"       Windows:  set DATASET_PATH=C:\Users\username\Desktop\Dataset\pdp_clean_dataset.jsonl")
     print(r"       Mac/Linux: export DATASET_PATH=/path/to/pdp_clean_dataset.jsonl")
     sys.exit(1)
 
